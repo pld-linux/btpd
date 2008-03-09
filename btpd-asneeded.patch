@@ -1,0 +1,10 @@
+--- btpd-0.13/btpd/Makefile.am.orig	2008-03-09 18:28:04.000000000 +0100
++++ btpd-0.13/btpd/Makefile.am	2008-03-09 18:31:10.000000000 +0100
+@@ -15,6 +15,5 @@ btpd_SOURCES=\
+ 	upload.c upload.h\
+ 	util.c
+ 
+-btpd_LDADD=../misc/libmisc.a ../libevent/libevent.a
++btpd_LDADD=../misc/libmisc.a ../libevent/libevent.a @openssl_LDFLAGS@ -lcrypto -lm
+ btpd_CPPFLAGS=-I$(top_srcdir)/misc -I$(top_srcdir)/libevent @openssl_CPPFLAGS@
+-btpd_LDFLAGS=@openssl_LDFLAGS@ -lcrypto -lm
